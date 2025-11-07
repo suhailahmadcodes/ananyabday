@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ananya's Magical Birthday 💜✨ — From Suhail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lavender: {
+                            100: '#f3e8ff',
+                            200: '#e9d5ff',
+                            300: '#d8b4fe',
+                            400: '#c084fc',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                            700: '#7e22ce',
+                        },
+                        gold: {
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        }
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-lavender-100 font-poppins overflow-x-hidden">
+    <!-- Sparkles Background -->
+    <sparkles-background></sparkles-background>
+<!-- Storybook Container -->
+    <div id="storybook" class="min-h-screen flex flex-col items-center justify-center px-4 py-12 relative z-10 transition-all duration-1000">
+        <!-- Page 1 - Cover -->
+        <div id="page1" class="story-page active w-full max-w-3xl bg-gradient-to-br from-lavender-200 to-white rounded-3xl shadow-xl p-8 md:p-12 text-center flex flex-col items-center justify-center min-h-[80vh] relative overflow-hidden">
+<h1 class="text-4xl md:text-6xl font-playfair font-bold text-lavender-600 mb-6 animate-fade-in">HAPPIESTTTT BIRTHDAY <br> TO MY ONE & ONLY CHUDAIL <span class="text-gold-500">🧿💜✨</span></h1>
+            <p class="text-lg text-lavender-500 mt-8 animate-bounce animate-delay-1000">Click to open your magical birthday story 💌</p>
+</div>
+
+        <!-- Page 2 - Compliment Page -->
+        <div id="page2" class="story-page hidden w-full max-w-3xl bg-white rounded-3xl shadow-xl p-8 md:p-12 min-h-[80vh] flex flex-col items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://assets8.lottiefiles.com/packages/lf20_2cwDXD.json')] bg-no-repeat bg-center opacity-10"></div>
+            <div id="typing-text" class="text-center max-w-2xl">
+                <p class="text-xl md:text-2xl text-lavender-700 mb-6 leading-relaxed typing-line">Mujhe samajh nhi aata — HOW can someone be this attractive, pretty, smart, intelligent, anddd mature...</p>
+                <p class="text-xl md:text-2xl text-lavender-700 mb-8 leading-relaxed typing-line">and still behave THIS good to me 😭💀</p>
+            </div>
+            <div id="quote-card" class="bg-gradient-to-r from-gold-100 to-gold-200 p-6 rounded-lg shadow-md border border-gold-300 max-w-md opacity-0 translate-y-10">
+                <p class="font-playfair text-xl text-gold-700 italic">"You seriously balance beauty with brains, Miss Topper 😌📚"</p>
+            </div>
+        </div>
+
+        <!-- Page 3 - Memory Chapter -->
+        <div id="page3" class="story-page hidden w-full max-w-3xl bg-white rounded-3xl shadow-xl p-8 md:p-12 min-h-[80vh] flex flex-col items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://assets8.lottiefiles.com/packages/lf20_vybwn7gb.json')] bg-no-repeat bg-center opacity-10"></div>
+            <img src="http://static.photos/workspace/640x360/3" alt="Classroom sketch" class="w-64 h-64 object-cover rounded-lg mb-8 opacity-0" id="classroom-img">
+            <div class="text-center max-w-2xl">
+                <p class="text-xl md:text-2xl text-lavender-700 mb-4 leading-relaxed opacity-0 translate-y-8" id="memory-line1">From that one random day (25th June)... who knew the girl silently watching lectures and making notes...</p>
+                <p class="text-xl md:text-2xl text-lavender-700 leading-relaxed opacity-0 translate-y-8" id="memory-line2">...would end up becoming my favourite headache ever 💀✨</p>
+            </div>
+</div>
+
+        <!-- Page 4 - Personality Magic -->
+        <div id="page4" class="story-page hidden w-full max-w-3xl bg-white rounded-3xl shadow-xl p-8 md:p-12 min-h-[80vh] flex flex-col items-center justify-center relative overflow-hidden">
+            <div class="absolute -top-20 -right-20 w-64 h-64 opacity-0" id="witch-hat">
+                </div>
+            <div class="text-center max-w-2xl">
+                <p class="text-xl md:text-2xl text-lavender-700 mb-4 leading-relaxed opacity-0 translate-y-8" id="personality-line1">You're genuinely one of the most mature, attractive, and sorted people I've met...</p>
+                <p class="text-xl md:text-2xl text-lavender-700 mb-8 leading-relaxed opacity-0 translate-y-8" id="personality-line2">A perfect combo of Topper brain 🧠, Dashing looks, and Witch energy 🧙🏻‍♀️😂</p>
+                <p class="text-sm md:text-base text-lavender-500 italic opacity-0 translate-y-8" id="handwriting-text">"Yeah, I said witch energy — own it 😌🔥"</p>
+            </div>
+        </div>
+
+        <!-- Page 5 - Birthday Wish -->
+        <div id="page5" class="story-page hidden w-full max-w-3xl bg-white rounded-3xl shadow-xl p-8 md:p-12 min-h-[80vh] flex flex-col items-center justify-center relative overflow-hidden">
+            <div class="text-center max-w-2xl">
+                <p class="text-xl md:text-2xl text-lavender-700 mb-4 leading-relaxed opacity-0 translate-y-8" id="wish-line1">On your big day, I just hope your life stays as bright as your future (and your phone screen at 3 a.m. 😭)</p>
+                <p class="text-xl md:text-2xl text-lavender-700 mb-8 leading-relaxed opacity-0 translate-y-8" id="wish-line2">May life give you happiness, success, love, laughter — and maybe a little less attitude 😌🔥 (jk keep it, it suits you)</p>
+            </div>
+            <div id="phone-animation" class="w-32 h-56 bg-black rounded-2xl p-2 border-4 border-lavender-300 relative opacity-0">
+                <div class="w-full h-full bg-gradient-to-br from-lavender-100 to-lavender-300 rounded-lg flex items-center justify-center">
+                    <span class="text-lavender-600 text-2xl">3:00 AM</span>
+                </div>
+            </div>
+            <div class="absolute inset-0 bg-[url('https://assets8.lottiefiles.com/packages/lf20_2glqwe9t.json')] bg-no-repeat bg-center opacity-10"></div>
+        </div>
+
+        <!-- Page 6 - Finale -->
+        <div id="page6" class="story-page hidden w-full max-w-3xl bg-gradient-to-br from-lavender-100 to-lavender-200 rounded-3xl shadow-xl p-8 md:p-12 min-h-[80vh] flex flex-col items-center justify-center relative overflow-hidden">
+            <h2 class="text-4xl md:text-6xl font-playfair font-bold text-lavender-700 mb-6 text-center opacity-0" id="final-title">HAPPY BIRTHDAY ANANYA <span class="text-gold-500">🤍💫</span></h2>
+            <p class="text-xl md:text-2xl text-lavender-600 text-center mb-8 opacity-0" id="final-subtitle">My favourite human, ex library partner, topper, and forever best chudail ever <span class="text-gold-500">🧿💜✨</span></p>
+            <button id="final-button" class="px-6 py-3 bg-gradient-to-r from-lavender-400 to-lavender-600 text-white rounded-full font-medium hover:shadow-lg transition-all opacity-0 hover:scale-105">From Suhail 💌</button>
+</div>
+    </div>
+    <!-- Navigation Controls -->
+    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center space-x-4 z-50">
+        <button id="prev-btn" class="p-2 rounded-full bg-lavender-300 text-lavender-700 opacity-70 hover:opacity-100 transition-opacity">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        
+        <div id="page-dots" class="flex space-x-2">
+            <div class="w-3 h-3 rounded-full bg-lavender-300 cursor-pointer dot active" data-page="1"></div>
+            <div class="w-3 h-3 rounded-full bg-lavender-300 cursor-pointer dot" data-page="2"></div>
+            <div class="w-3 h-3 rounded-full bg-lavender-300 cursor-pointer dot" data-page="3"></div>
+            <div class="w-3 h-3 rounded-full bg-lavender-300 cursor-pointer dot" data-page="4"></div>
+            <div class="w-3 h-3 rounded-full bg-lavender-300 cursor-pointer dot" data-page="5"></div>
+            <div class="w-3 h-3 rounded-full bg-lavender-300 cursor-pointer dot" data-page="6"></div>
+        </div>
+        
+        <button id="next-btn" class="p-2 rounded-full bg-lavender-300 text-lavender-700 opacity-70 hover:opacity-100 transition-opacity">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Swipe Hint for Mobile -->
+    <div id="swipe-hint" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-lavender-200 bg-opacity-80 text-lavender-700 px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2 z-50 md:hidden">
+        <span>Swipe left/right</span>
+        <div class="flex space-x-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </div>
+    </div>
+<script src="script.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
