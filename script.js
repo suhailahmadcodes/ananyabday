@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize variables
     let currentPage = 1;
-    const totalPages = 6;
+    const totalPages = 9;
     const pages = document.querySelectorAll('.story-page');
     const dots = document.querySelectorAll('.dot');
     // Initialize all pages except first as hidden and inactive
@@ -150,29 +150,8 @@ currentPage = pageNum;
                     ease: "power2.out"
                 });
                 break;
-            case 2:
-                // Typing effect for page 2
-                const lines = document.querySelectorAll('.typing-line');
-                lines.forEach((line, index) => {
-                    const text = line.textContent;
-                    line.textContent = '';
-                    setTimeout(() => {
-                        typeWriter(line, text, 0, 50);
-                    }, index * 1500);
-                });
-                
-                // Quote card animation
-                setTimeout(() => {
-                    gsap.to("#quote-card", {
-                        opacity: 1,
-                        y: 0,
-                        duration: 1,
-                        ease: "elastic.out(1, 0.5)"
-                    });
-                }, 3500);
-                break;
-            case 3:
-                // Classroom image and text animations
+                case 2:
+                // Classroom image and text animations (was page 3)
                 gsap.to("#classroom-img", {
                     opacity: 1,
                     duration: 1,
@@ -205,43 +184,90 @@ currentPage = pageNum;
                     }, 500);
                 }, 500);
                 break;
+            case 3:
+    // Animate in lines on Personality Magic page
+    const personalityLines = [
+        "#personality-line1",
+        "#personality-line2",
+        "#handwriting-text"
+    ];
+
+    personalityLines.forEach((selector, i) => {
+        gsap.to(selector, {
+            opacity: 1,
+            y: 0,
+            delay: i * 0.5,
+            duration: 0.8,
+            ease: "power2.out"
+        });
+    });
+
+    // Optional: witch-hat animation if you want it to appear magically
+    gsap.fromTo("#witch-hat",
+        { opacity: 0, rotate: -45, y: -30 },
+        { opacity: 1, rotate: 0, y: 0, delay: 0.5, duration: 1, ease: "elastic.out(1, 0.5)" }
+    );
+    break;
+
             case 4:
-                // Witch hat and personality animations
-                gsap.to("#witch-hat", {
-                    opacity: 1,
-                    duration: 1,
-                    x: -50,
-                    y: -50,
-                    ease: "power2.out"
-                });
-                
-                setTimeout(() => {
-                    gsap.to("#personality-line1", {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.8,
-                        ease: "power2.out"
-                    });
-                    
+                // Compliment Page Animations (Typewriter + Quote Card)
+                const lines4 = document.querySelectorAll("#page4 .typing-line");
+                const quoteCard = document.getElementById("quote-card");
+
+                // Reset previous state
+                lines4.forEach(line => line.textContent = line.getAttribute("data-fulltext") || line.textContent);
+                lines4.forEach(line => line.textContent = ""); // Clear text for typing
+                quoteCard.style.opacity = 0;
+
+                // Typewriter function
+                function typeWriter(element, text, speed, callback) {
+                    let i = 0;
+                    function typing() {
+                        if (i < text.length) {
+                            element.textContent += text.charAt(i);
+                            i++;
+                            setTimeout(typing, speed);
+                        } else if (callback) {
+                            callback();
+                        }
+                    }
+                    typing();
+                }
+            
+                // Sequential typing for both lines
+                const line1 = lines4[0];
+                const line2 = lines4[1];
+                const text1 = "Mujhe samajh nhi aata — HOW can someone be this attractive, pretty, smart, intelligent, anddd mature...";
+                const text2 = "and still behave THIS good to me 😭💀";
+            
+                typeWriter(line1, text1, 40, () => {
                     setTimeout(() => {
-                        gsap.to("#personality-line2", {
-                            opacity: 1,
-                            y: 0,
-                            duration: 0.8,
-                            ease: "power2.out"
-                        });
-                        
-                        setTimeout(() => {
-                            gsap.to("#handwriting-text", {
+                        typeWriter(line2, text2, 40, () => {
+                            // Show the quote card after typing finishes
+                            gsap.to(quoteCard, {
                                 opacity: 1,
                                 y: 0,
-                                duration: 0.8,
-                                ease: "power2.out"
+                                duration: 1,
+                                ease: "elastic.out(1, 0.5)"
                             });
-                        }, 500);
-                    }, 500);
-                }, 500);
+                        });
+                    }, 400);
+                });
                 break;
+            
+                // Reveal the quote card after text finishes
+                gsap.fromTo("#quote-card",
+                    { opacity: 0, y: 30 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1,
+                        delay: 2.8,
+                        ease: "elastic.out(1, 0.5)"
+                    }
+                );
+                break;
+            
             case 5:
                 // Birthday wish animations
                 gsap.to("#wish-line1", {
@@ -269,7 +295,87 @@ currentPage = pageNum;
                     }, 500);
                 }, 500);
                 break;
+            // ✨ Page 7 — Shayari Page
+            case 7:
+                gsap.to("#shayari-line", {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    ease: "power2.out"
+                });
+                break;
+            
             case 6:
+                // --- Pandey Ji Tariff Card Page Animation ---
+                const tariffLines = [
+                    "#tariff-line1", "#tariff-line2", "#tariff-line3",
+                    "#tariff-line4", "#tariff-line5", "#tariff-line6"
+                ];
+                const viewBtn = document.getElementById("view-once-btn");
+            
+                // Reset opacity & position
+                tariffLines.forEach(sel => gsap.set(sel, { opacity: 0, y: 20 }));
+                gsap.set(viewBtn, { opacity: 0, scale: 0.8 });
+            
+                // Sequentially animate lines
+                tariffLines.forEach((sel, i) => {
+                    gsap.to(sel, {
+                        opacity: 1,
+                        y: 0,
+                        delay: i * 0.4,
+                        duration: 0.6,
+                        ease: "power2.out"
+                    });
+                });
+            
+                // Button pops in last
+                gsap.to(viewBtn, {
+                    opacity: 1,
+                    scale: 1,
+                    delay: tariffLines.length * 0.4 + 0.3,
+                    duration: 0.6,
+                    ease: "back.out(1.7)"
+                });
+                break;
+            
+            case 8:
+                // --- Party Question Page Animation ---
+                const wishLine = document.getElementById("wish-line1");
+                const yesBtn = document.getElementById("yes-btn");
+                const noBtn = document.getElementById("no-btn");
+
+                // Reset
+                gsap.set(wishLine, { opacity: 0, y: 20 });
+                gsap.set([yesBtn, noBtn], { opacity: 0, scale: 0.8 });
+
+                // Animate question
+                gsap.to(wishLine, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+            
+                // Animate buttons in sequence
+                gsap.to(yesBtn, {
+                    opacity: 1,
+                    scale: 1,
+                    delay: 0.6,
+                    duration: 0.6,
+                    ease: "back.out(1.7)"
+                });
+                gsap.to(noBtn, {
+                    opacity: 1,
+                    scale: 1,
+                    delay: 0.9,
+                    duration: 0.6,
+                    ease: "back.out(1.7)"
+                });
+                break;
+            
+
+            // 🎉 Page 9 — Finale Page (moved from old case 7)
+            case 9:
                 // Finale animations
                 gsap.to("#final-title", {
                     opacity: 1,
@@ -277,7 +383,7 @@ currentPage = pageNum;
                     y: 0,
                     ease: "power2.out"
                 });
-                
+            
                 setTimeout(() => {
                     gsap.to("#final-subtitle", {
                         opacity: 1,
@@ -285,7 +391,7 @@ currentPage = pageNum;
                         y: 0,
                         ease: "power2.out"
                     });
-                    
+                
                     setTimeout(() => {
                         gsap.to("#final-button", {
                             opacity: 1,
@@ -296,8 +402,9 @@ currentPage = pageNum;
                     }, 500);
                 }, 500);
                 break;
-        }
-    }
+            
+                    }
+                }
     
     // Fireworks show
     function showFireworks() {
